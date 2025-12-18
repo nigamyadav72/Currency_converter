@@ -7,14 +7,19 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //here we are using buildcontext when we do navigation, theme all we required is buildcontext
 
-    return const Scaffold(
+    final border = OutlineInputBorder(
+      borderSide: const BorderSide(width: 2.0, style: BorderStyle.solid),
+      borderRadius: BorderRadius.circular(10),
+    );
+
+    return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               '0',
               style: TextStyle(
                 fontSize: 55,
@@ -22,18 +27,29 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-            TextField(
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: 'Please enter the amount in USD',
-                hintStyle: TextStyle(color: Colors.black),
-                prefixIcon: Icon(Icons.monetization_on),
-                prefixIconColor: Colors.black,
-                filled: true,
-                fillColor: Colors.white,
-                focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                style: const TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                  hintText: 'Please enter the amount in USD',
+                  hintStyle: const TextStyle(color: Colors.black),
+                  prefixIcon: const Icon(Icons.monetization_on),
+                  prefixIconColor: Colors.black,
+                  filled: true,
+                  fillColor: Colors.white,
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
               ),
             ),
+            //button
+
+            //raised
+            //appears like a text
           ],
         ),
       ),
