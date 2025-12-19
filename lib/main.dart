@@ -1,8 +1,10 @@
 import 'package:currency_converter/currency_converter_material_page.dart';
+import 'package:currency_converter/currency_converter_cupertino_page.dart';
 import 'package:flutter/material.dart'; //here this material.dart is name after the material design system name
 // import 'package:flutter/cupertino.dart'; //this is for ios
 //we can aslo do relative importing like import ./pages/currencyconveter something like that like in other languages
 
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(const MyApp()); //here const means it is compile time constant
@@ -39,5 +41,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class MyCupertinoApp extends StatelessWidget {
+  const MyCupertinoApp({super.key});
 
-//before returning any widgets we have to put const before them because it improve performance since it make it to compile only single time 
+  @override
+  Widget build(BuildContext context) {
+    return const CupertinoApp(home: CurrencyConverterCupertinoPage());
+  }
+}
+
+//before returning any widgets we have to put const before them because it improve performance since it make it to compile only single time
